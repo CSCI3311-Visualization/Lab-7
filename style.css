@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+}
+
+.radio-container {
+  margin: auto;
+  width: 50%;
+}
+
+.check {
+  margin-bottom: 10px;
+}
+
+svg {
+  margin: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tooltip {
+  position: fixed;
+  display: none;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  opacity: 0.7;
+}

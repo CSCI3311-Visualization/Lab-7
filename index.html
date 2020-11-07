@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="style.css">
+
+    <script defer src="https://unpkg.com/topojson@3"></script>
+    <script defer src="https://d3js.org/d3.v6.min.js"></script>
+
+    <script defer src="main.js" type="module"></script>
+
+    <title>Lab 7: Layout & Map</title>
+</head>
+<body>
+    <div class='main-container'>
+
+    <h1>Airport Connections</h1>
+    <div class='radio-container'>
+        <input class='check' checked="true" type="radio" id="force" name="option" value="force">
+        <label class='check' for="force">Force</label><br>
+        <input class='check' type="radio" id="map" name="option" value="map">
+        <label class='check' for="map">Map</label><br>
+    </div>
+    
+    <div class='node-link'></div>
+    <div class="tooltip"></div>
+</div>
+
+</body>
+</html>
