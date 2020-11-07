@@ -1,13 +1,15 @@
 let visType = 'force';
-const width = 400;
-const height = 400;
+const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+const width = 700 - margin.left - margin.right;
+const height = 600 - margin.top - margin.bottom;
 
 const svg = d3
   .select('.node-link')
   .append('svg')
-  .attr('viewBox', [0, 0, width, height]);
+  .attr('width', width + margin.left + margin.right)
+  .attr('height', height + margin.top + margin.bottom);
 
-const tooltip = d3.select('.tooltip');
+// .attr('viewBox', [0, 0, width, height]);
 
 Promise.all([
   // load multiple files
@@ -104,27 +106,7 @@ Promise.all([
     .data(airports.nodes)
     .join('circle')
     .attr('r', (d) => size(d.passengers))
-    .attr('fill', '#F4AE3D')
-    .on('mouseenter', (event, d) => {
-      if (visType !== 'force') {
-        // set inner HTML of the tooltip
-        tooltip.html(d.name);
-
-        // const matrix = d3.select(this).node().getBoundingClientRect();
-        console.log(d3.select(this).getBBox());
-
-        // set position and show tooltip
-        const pos = d3.pointer(event, window);
-        console.log('matrix', matrix);
-        tooltip.style('top', window.pageYOffset + matrix.f - 30 + 'px');
-        tooltip.style('left', window.pageXOffset + matrix.e + 15 + 'px');
-        tooltip.style('display', 'block');
-      }
-    })
-    .on('mouseleave', () => {
-      // hide tooltip
-      tooltip.style('display', 'none');
-    });
+    .attr('fill', '#F4AE3D');
 
   node.call(drag);
 
